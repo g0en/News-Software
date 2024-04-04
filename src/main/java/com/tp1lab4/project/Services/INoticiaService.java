@@ -8,7 +8,6 @@ public interface INoticiaService {
     Noticia createNoticia(Noticia noticia);
     Noticia getNoticiaById(Integer id);
     Noticia updateNoticia(Integer id, Noticia request);
-    int getUltimaNoticia();
     boolean getAllNoticias(Integer id);
     ArrayList<Noticia> noticias(Integer id);
 }

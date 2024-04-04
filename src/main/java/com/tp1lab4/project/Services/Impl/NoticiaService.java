@@ -39,11 +39,6 @@ public class NoticiaService implements INoticiaService {
     }
 
     @Override
-    public int getUltimaNoticia() {
-        return (int) this.repository.count();
-    }
-
-    @Override
     public boolean getAllNoticias(Integer id) {
         ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.repository.findAll();
         for(Noticia n : noticias){
