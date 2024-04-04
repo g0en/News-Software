@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 @Controller
 public class EmpresaController {
     @Autowired
@@ -26,13 +29,15 @@ public class EmpresaController {
     @GetMapping("/home/{id}")
     public String homeView(Model model, Model noticia, @PathVariable Integer id){
         model.addAttribute("empresa", this.empresaService.getEmpresaById(id));
-        //boolean response = this.noticiaService.getAllNoticias(id);
-        if(true){
-            int ultimo = this.noticiaService.getUltimaNoticia();
-            noticia.addAttribute("noticia", this.noticiaService.getNoticiaById(2));
+        if(this.noticiaService.getAllNoticias(id)){
+            ArrayList<Noticia> noticias = this.noticiaService.noticias(id);
+            noticia.addAttribute("noticia", noticias);
         }else{
-            noticia.addAttribute("noticia", this.noticiaService.getNoticiaById(1));
-            //return otro home
+            Noticia noticiaAux = new Noticia();
+            noticiaAux.setTituloNoticia("No hay noticias");
+            noticiaAux.setResumenNoticia("");
+            noticiaAux.setImagenNoticia("page-3_img1_original.jpg");
+            noticia.addAttribute("noticia", noticiaAux);
         }
 
         return "home";

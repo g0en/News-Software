@@ -90,50 +90,19 @@
     <main th:object="${empresa}">
 
       <section class="well well1 well1_ins1">
-        <h1>asd</h1>
         <div class="camera_container">
           <div id="camera" class="camera_wrap">
-            <div th:attr='data-src=${noticia.imagenNoticia}'>
+            <div th:each="noticia : ${noticia}" th:attr="data-src=@{'/images/' + ${noticia.imagenNoticia}}">
               <div class="camera_caption fadeIn">
                 <div class="jumbotron jumbotron1">
                   <em>
                     <a th:href="@{'/detalle/' + ${empresa.id} + '/' + ${noticia.id}}" th:text="${noticia.tituloNoticia}">Titulo Noticia</a>
                   </em>
                   <div class="wrap">
-                    <p>
+                    <p th:text="${noticia.resumenNoticia}">
                       Resumen
                     </p>
                     <a th:href="@{'/detalle/' + ${empresa.id} + '/' + ${noticia.id}}" class="btn-link fa-angle-right"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-src="/images/page-1_slide2.jpg">
-              <div class="camera_caption fadeIn">
-                <div class="jumbotron jumbotron2">
-                  <em>
-                    Titulo Noticia
-                  </em>
-                  <div class="wrap">
-                    <p>
-                      Resumen
-                    </p>
-                    <a href="#" class="btn-link hov_prime fa-angle-right"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div data-src="/images/page-1_slide3.jpg">
-              <div class="camera_caption fadeIn">
-                <div class="jumbotron">
-                  <em>
-                    Titulo Noticia
-                  </em>
-                  <div class="wrap">
-                    <p>
-                      Resumen
-                    </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
                   </div>
                 </div>
               </div>

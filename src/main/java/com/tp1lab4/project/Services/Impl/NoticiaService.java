@@ -54,5 +54,22 @@ public class NoticiaService implements INoticiaService {
         return false;
     }
 
+    @Override
+    public ArrayList<Noticia> noticias(Integer id) {
+        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.repository.findAll();
+        ArrayList<Noticia> noticiasReturn = new ArrayList<>();
+        int i= 1;
+        for(Noticia n : noticias){
+            if(n.getEmpresa().getId() == id){
+                noticiasReturn.add(n);
+                if(i==5){
+                    break;
+                }
+                i++;
+            }
+        }
+        return noticiasReturn;
+    }
+
 
 }

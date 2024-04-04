@@ -10,4 +10,5 @@ public interface INoticiaService {
     Noticia updateNoticia(Integer id, Noticia request);
     int getUltimaNoticia();
     boolean getAllNoticias(Integer id);
+    ArrayList<Noticia> noticias(Integer id);
 }
