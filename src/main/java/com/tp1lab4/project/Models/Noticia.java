@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -25,7 +26,7 @@ public class Noticia {
     @Column
     private char publicada;
     @Column
-    private Date fechaPublicacion;
+    private LocalDate fechaPublicacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa")

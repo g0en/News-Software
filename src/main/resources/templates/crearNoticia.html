@@ -103,9 +103,13 @@
     </div>
 
     <div class="form-group">
+        <label for="fecha">Fecha de Publicación:</label>
+        <input type="date" id="fecha" name="fecha" th:field="${noticia.fechaPublicacion}" required>
+    </div>
+
+    <div class="form-group">
         <label for="editorHtml">Contenido:</label>
         <textarea id="editorHtml" name="contenidoHtml"></textarea>
-        <button type="button" onclick="verHTML()">VER HTML</button>
     </div>
     <div class="form-group">
         <label>Seleccione la empresa: </label>
