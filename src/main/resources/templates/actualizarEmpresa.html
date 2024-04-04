@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Empresa</title>
+    <link rel="stylesheet" href="/css/crearEmpresa.css">
+</head>
+<body>
+<h2>Actualizar Empresa</h2>
+
+<form th:action="@{/actualizar-empresa/{id}(id=${empresa.id})}" th:object="${empresa}" method="post">
+    <div>
+        <label for="denominacion">Denominación:</label>
+        <input type="text" id="denominacion" name="denominacion" th:field="${empresa.denominacion}" required>
+    </div>
+    <div>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" th:field="${empresa.telefono}" required>
+    </div>
+    <div>
+        <label for="horario">Horario de Atención:</label>
+        <input type="text" id="horario" name="horario" th:field="${empresa.horarioAtencion}" required>
+    </div>
+    <div>
+        <label for="quienes_somos">Quiénes Somos:</label>
+        <textarea id="quienes_somos" name="quienes_somos" rows="4" th:field="${empresa.quienesSomos}" required></textarea>
+    </div>
+    <div>
+        <label for="latitud">Latitud:</label>
+        <input type="text" id="latitud" name="latitud" th:field="${empresa.latitud}" required>
+    </div>
+    <div>
+        <label for="longitud">Longitud:</label>
+        <input type="text" id="longitud" name="longitud" th:field="${empresa.longitud}" required>
+    </div>
+    <div>
+        <label for="domicilio">Domicilio:</label>
+        <input type="text" id="domicilio" name="domicilio" th:field="${empresa.domicilio}" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:field="${empresa.email}" required>
+    </div>
+    <div>
+        <button type="submit">Actualizar Empresa</button>
+    </div>
+</form>
+</body>
+</html>

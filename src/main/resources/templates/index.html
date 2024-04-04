@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="/css/inicio.css">
+</head>
+<body>
+<table width="50%" align="center">
+    <tr>
+        <td width="50%">
+            <b>EMPRESA</b>
+        </td>
+        <td>
+            <b>VER PAGINA</b>
+        </td>
+        <td>
+            <b>ACTUALIZAR</b>
+        </td>
+        <td>
+            <b>ELIMINAR</b>
+        </td>
+    </tr>
+    <tr th:each="emp:${empresas}">
+        <td th:text="${emp.denominacion}"></td>
+        <td><a th:href="@{/home/{id}(id=${emp.id})}">URL PAGINA HOME</a></td>
+        <td>
+            <form th:action="@{/actualizar-empresa/form/{id}(id=${emp.id})}" method="get">
+                <input type="submit" value="Actualizar" id="btn-actualizar">
+            </form>
+        </td>
+        <td>
+            <form th:action="@{eliminar-empresa/{id}(id=${emp.id})}" method="get">
+                <input type="submit" value="Eliminar" id="btn-eliminar">
+            </form>
+        </td>
+    </tr>
+</table>
+<form th:action="@{/crear-empresa/form}">
+    <input type="submit" value="Crear Empresa" id="btn-empresa">
+</form>
+
+<form th:action="@{/crear-noticia/form}">
+    <input type="submit" value="Crear Noticia" id="btn-noticia">
+</form>
+</body>
+</html>

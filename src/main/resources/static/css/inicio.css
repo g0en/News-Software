@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+input[type="submit"],
+input[type="button"] {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#btn-actualizar {
+    background-color: #3498db; /* Celeste/Azul */
+    color: white;
+}
+
+#btn-eliminar {
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+}
+
+#btn-empresa {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+}
+
+#btn-noticia {
+    background-color: #f1c40f; /* Amarillo */
+    color: black; /* Cambiado a negro para mejor legibilidad */
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #555; /* Cambiar a color gris oscuro al pasar el cursor */
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+a:hover {
+    color: #45a049;
+}
