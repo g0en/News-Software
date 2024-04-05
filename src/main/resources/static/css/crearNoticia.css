@@ -45,3 +45,17 @@ button[type="button"]:hover {
 .center {
     text-align: center;
 }
+
+.form-group input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilo adicional para el borde al pasar el cursor */
+.form-group input[type="date"]:hover,
+.form-group input[type="date"]:focus {
+    border-color: #666;
+}

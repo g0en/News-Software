@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Actualizar Noticia</title>
@@ -97,19 +97,19 @@
     <div class="form-group">
         <label for="publicada">Publicada:</label>
         <select id="publicada" name="publicada" required>
-            <option th:value="Y" th:selected="${noticia.publicada == 'Y' ? 'selected' : ''}">Y</option>
-            <option th:value="N" th:selected="${noticia.publicada == 'N' ? 'selected' : ''}">N</option>
+            <option  th:value="Y" th:selected="${noticia.publicada} == 'Y'">Y</option>
+            <option  th:value="N" th:selected="${noticia.publicada} == 'N'">N</option>
         </select>
     </div>
 
     <div class="form-group">
         <label for="fecha">Fecha de Publicación:</label>
-        <input type="date" id="fecha" name="fecha" th:field="${noticia.fechaPublicacion}" required>
+        <input type="date" id="fecha" name="fecha" th:value="${#temporals.format(noticia.fechaPublicacion, 'yyyy-MM-dd')}" required>
     </div>
 
     <div class="form-group">
         <label for="editorHtml">Contenido:</label>
-        <textarea id="editorHtml" name="contenidoHtml"></textarea>
+        <textarea id="editorHtml" name="contenidoHtml" th:utext="${noticia.contenidoHtml}"></textarea>
     </div>
     <div class="form-group">
         <label>Seleccione la empresa: </label>
