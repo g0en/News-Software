@@ -67,9 +67,14 @@ public class NoticiaController {
     }
 
     @GetMapping("/buscador/{id}")
-    public String buscadorView(Model model, @PathVariable Integer id){
-        model.addAttribute("empresa", this.services.getEmpresaById(id));
-        return "buscador";
+    public String buscadorView(Model model, @RequestParam String tituloNoticia, @PathVariable("id") Integer id){
+        try {
+            model.addAttribute("empresa", this.services.getEmpresaById(id));
+            model.addAttribute("noticias", this.service.getNoticiasByTituloNoticia(tituloNoticia,id));
+            return "buscador";
+        }catch (Exception e){
+            throw e;
+        }
     }
 
     @GetMapping("/eliminar-noticia/{id}")

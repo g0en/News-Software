@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class NoticiaService implements INoticiaService {
@@ -36,6 +38,15 @@ public class NoticiaService implements INoticiaService {
         noticia.setEmpresa(request.getEmpresa());
 
         return this.repository.save(noticia);
+    }
+
+    @Override
+    public List<Noticia> getNoticiasByTituloNoticia(String tituloNoticia, int id) {
+        var noticias = this.repository.findTop20ByTituloNoticiaContaining(tituloNoticia);
+
+        noticias = noticias.stream().filter(noticia -> noticia.getEmpresa().getId() == id)                .collect(Collectors.toList());
+
+        return noticias;
     }
 
     @Override
