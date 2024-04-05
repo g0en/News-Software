@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Crear Noticia</title>
+    <title>Actualizar Noticia</title>
     <link rel="stylesheet" type="text/css" href="/css/crearNoticia.css">
     <script src="https://cdn.tiny.cloud/1/470vl6oydu4y113xe2muphz55fln53vldzpewunxn0v858qz/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
@@ -80,8 +80,8 @@
     </style>
 </head>
 <body>
-<h2 class="center">Crear Noticia</h2>
-<form th:action="@{/crear-noticia}" th:object="${noticia}" method="post" enctype="multipart/form-data">
+<h2 class="center">Actualizar Noticia</h2>
+<form  th:object="${noticia}"  enctype="multipart/form-data">
     <div class="form-group">
         <label for="titulo">Título Noticia:</label>
         <input type="text" id="titulo" name="titulo" th:field="${noticia.tituloNoticia}" required>
@@ -97,8 +97,8 @@
     <div class="form-group">
         <label for="publicada">Publicada:</label>
         <select id="publicada" name="publicada" required>
-            <option th:value="Y">Y</option>
-            <option th:value="N">N</option>
+            <option th:value="Y" th:selected="${noticia.publicada == 'Y' ? 'selected' : ''}">Y</option>
+            <option th:value="N" th:selected="${noticia.publicada == 'N' ? 'selected' : ''}">N</option>
         </select>
     </div>
 
@@ -113,11 +113,14 @@
     </div>
     <div class="form-group">
         <label>Seleccione la empresa: </label>
-        <select name="empresa">
-            <option th:each="emp : ${empresa}" th:value="${emp.id}" th:text="${emp.denominacion}"></option>
+        <select>
+            <option th:each="emp : ${empresa}" th:value="${emp.id}" th:text="${emp.denominacion}" th:selected="${noticia.empresa != null && noticia.empresa.id == emp.id}"></option>
         </select>
     </div>
-    <button type="submit">Crear Noticia</button>
+    <button type="submit">Actualizar Noticia</button>
+</form>
+<form th:action="@{/eliminar-noticia/{id}(id=${noticia.id})}" method="get">
+    <button type="submit">Eliminar</button>
 </form>
 <form th:action="@{/}">
     <button type="submit">Volver</button>

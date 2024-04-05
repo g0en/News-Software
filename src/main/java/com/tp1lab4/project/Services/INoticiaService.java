@@ -10,4 +10,6 @@ public interface INoticiaService {
     Noticia updateNoticia(Integer id, Noticia request);
     boolean getAllNoticias(Integer id);
     ArrayList<Noticia> noticias(Integer id);
+    Boolean deleteNoticia(Integer id);
+    void deleteNoticiaByFk(Integer id);
 }

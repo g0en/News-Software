@@ -66,5 +66,27 @@ public class NoticiaService implements INoticiaService {
         return noticiasReturn;
     }
 
+    @Override
+    public Boolean deleteNoticia(Integer id) {
+        try{
+            this.repository.deleteById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
 
+    @Override
+    public void deleteNoticiaByFk(Integer id) {
+        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.repository.findAll();
+        try {
+            for(Noticia n : noticias){
+                if(n.getEmpresa().getId() == id){
+                    this.repository.deleteById(n.getId());
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

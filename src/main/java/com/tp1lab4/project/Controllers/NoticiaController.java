@@ -49,6 +49,13 @@ public class NoticiaController {
         return "redirect:/";
     }
 
+    @GetMapping("/actualizar-noticia/form/{id}")
+    public String actualizarNoticiaView(@PathVariable Integer id, Model noticiaModel, Model empresaModel){
+        noticiaModel.addAttribute("noticia", this.service.getNoticiaById(id));
+        empresaModel.addAttribute("empresa", this.services.getEmpresa());
+        return "actualizarNoticia";
+    }
+
     @GetMapping("/detalle/{id}/{idNoticia}")
     public String detalleView(Model model, Model noticia, @PathVariable("id") Integer id, @PathVariable("idNoticia") Integer idNoticia){
         model.addAttribute("empresa", this.services.getEmpresaById(id));
@@ -60,5 +67,11 @@ public class NoticiaController {
     public String buscadorView(Model model, @PathVariable Integer id){
         model.addAttribute("empresa", this.services.getEmpresaById(id));
         return "buscador";
+    }
+
+    @GetMapping("/eliminar-noticia/{id}")
+    public String deleteNoticia(@PathVariable Integer id){
+        this.service.deleteNoticia(id);
+        return "redirect:/";
     }
 }
