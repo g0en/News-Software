@@ -1,4 +1,47 @@
-/* Estilos para el formulario */
+body{
+    font-family: Arial, sans-serif;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="email"],
+form textarea {
+    background-color: #f2f2f2;
+}
+
+form button[type="submit"] {
+    width: 30%;
+    margin-left: 265px;
+    margin-bottom: 10px;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -23,25 +66,9 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #f2f2f2;
 }
 
-/* Estilos para el botón */
-button[type="submit"],
-button[type="button"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover,
-button[type="button"]:hover {
-    background-color: #45a049;
-}
-
-/* Estilos para centrar el título */
 .center {
     text-align: center;
 }
@@ -50,12 +77,90 @@ button[type="button"]:hover {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
+    width: 61%;
     box-sizing: border-box;
 }
 
-/* Estilo adicional para el borde al pasar el cursor */
 .form-group input[type="date"]:hover,
 .form-group input[type="date"]:focus {
     border-color: #666;
+}
+
+.file-name {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-btn {
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-btn-label {
+    font-size: 16px;
+}
+
+.upload-container {
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.line{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+#line,
+#line1,
+#line2 {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}
+.file-name {
+    margin-top: 0;
+    margin-bottom: 35px;
+    display: block;
+}
+
+select {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#line input[type="image"]{
+    margin-right: 120px;
+}
+#line1 select {
+    margin-left: 130px;
+    width: 60%;
+}
+
+#line1 label {
+    margin-left: 130px;
+}
+
+#line2 input[type="date"]{
+    margin-left: 185px;
+}
+
+#line2 label{
+    margin-left: 185px;
+}
+
+label {
+    font-weight: 600;
 }

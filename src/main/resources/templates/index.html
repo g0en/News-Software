@@ -4,9 +4,18 @@
     <link rel="stylesheet" type="text/css" href="/css/inicio.css">
 </head>
 <body>
+<div class="button-container">
+    <form th:action="@{/crear-empresa/form}">
+        <input type="submit" value="Crear Empresa" id="btn-empresa">
+    </form>
+
+    <form th:action="@{/crear-noticia/form}">
+        <input type="submit" value="Crear Noticia" id="btn-noticia">
+    </form>
+</div>
 <table width="50%" align="center">
     <tr>
-        <td width="50%">
+        <td width="30%">
             <b>EMPRESA</b>
         </td>
         <td>
@@ -29,17 +38,10 @@
         </td>
         <td>
             <form th:action="@{eliminar-empresa/{id}(id=${emp.id})}" method="get">
-                <input type="submit" value="Eliminar" id="btn-eliminar">
+                <input type="submit" value="Eliminar" id="btn-eliminar" style="background-color: #DA1E1E">
             </form>
         </td>
     </tr>
 </table>
-<form th:action="@{/crear-empresa/form}">
-    <input type="submit" value="Crear Empresa" id="btn-empresa">
-</form>
-
-<form th:action="@{/crear-noticia/form}">
-    <input type="submit" value="Crear Noticia" id="btn-noticia">
-</form>
 </body>
 </html>

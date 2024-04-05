@@ -1,4 +1,7 @@
-/* Estilos para el formulario */
+body{
+    font-family: Arial, sans-serif;
+}
+
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -36,4 +39,21 @@ form button:hover {
 
 h2 {
     text-align: center;
+}
+
+/* Estilos para los inputs y textarea */
+form input[type="text"],
+form input[type="tel"],
+form input[type="email"],
+form textarea {
+    background-color: #f2f2f2;
+}
+
+form button[type="submit"] {
+    width: 40%;
+    margin-left: 155px;
+}
+
+label {
+    font-weight: 600;
 }

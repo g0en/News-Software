@@ -1,12 +1,10 @@
 package com.tp1lab4.project.Services.Impl;
 
-import com.tp1lab4.project.Models.Empresa;
 import com.tp1lab4.project.Models.Noticia;
 import com.tp1lab4.project.Repositories.INoticiaRepository;
 import com.tp1lab4.project.Services.INoticiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,21 +12,21 @@ import java.util.stream.Collectors;
 @Service
 public class NoticiaService implements INoticiaService {
     @Autowired
-    private INoticiaRepository repository;
+    private INoticiaRepository noticiaRepository;
 
     @Override
     public Noticia createNoticia(Noticia noticia) {
-        return this.repository.save(noticia);
+        return this.noticiaRepository.save(noticia);
     }
 
     @Override
     public Noticia getNoticiaById(Integer id) {
-        return this.repository.findById(id).get();
+        return this.noticiaRepository.findById(id).get();
     }
 
     @Override
     public Noticia updateNoticia(Integer id, Noticia request) {
-        Noticia noticia = this.repository.findById(id).get();
+        Noticia noticia = this.noticiaRepository.findById(id).get();
         noticia.setTituloNoticia(request.getTituloNoticia());
         noticia.setResumenNoticia(request.getResumenNoticia());
         noticia.setImagenNoticia(request.getImagenNoticia());
@@ -37,12 +35,12 @@ public class NoticiaService implements INoticiaService {
         noticia.setFechaPublicacion(request.getFechaPublicacion());
         noticia.setEmpresa(request.getEmpresa());
 
-        return this.repository.save(noticia);
+        return this.noticiaRepository.save(noticia);
     }
 
     @Override
     public List<Noticia> getNoticiasByTituloNoticia(String tituloNoticia, int id) {
-        var noticias = this.repository.findTop20ByTituloNoticiaContaining(tituloNoticia);
+        var noticias = this.noticiaRepository.findTop20ByTituloNoticiaContaining(tituloNoticia);
 
         noticias = noticias.stream().filter(noticia -> noticia.getEmpresa().getId() == id)                .collect(Collectors.toList());
 
@@ -51,7 +49,7 @@ public class NoticiaService implements INoticiaService {
 
     @Override
     public boolean getAllNoticias(Integer id) {
-        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.repository.findAll();
+        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.noticiaRepository.findAll();
         for(Noticia n : noticias){
             if(n.getEmpresa().getId() == id){
                 return true;
@@ -62,7 +60,7 @@ public class NoticiaService implements INoticiaService {
 
     @Override
     public ArrayList<Noticia> noticias(Integer id) {
-        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.repository.findAll();
+        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.noticiaRepository.findAll();
         ArrayList<Noticia> noticiasReturn = new ArrayList<>();
         int i= 1;
         for(Noticia n : noticias){
@@ -80,7 +78,7 @@ public class NoticiaService implements INoticiaService {
     @Override
     public Boolean deleteNoticia(Integer id) {
         try{
-            this.repository.deleteById(id);
+            this.noticiaRepository.deleteById(id);
             return true;
         }catch (Exception e){
             return false;
@@ -89,11 +87,11 @@ public class NoticiaService implements INoticiaService {
 
     @Override
     public void deleteNoticiaByFk(Integer id) {
-        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.repository.findAll();
+        ArrayList<Noticia> noticias = (ArrayList<Noticia>) this.noticiaRepository.findAll();
         try {
             for(Noticia n : noticias){
                 if(n.getEmpresa().getId() == id){
-                    this.repository.deleteById(n.getId());
+                    this.noticiaRepository.deleteById(n.getId());
                 }
             }
         }catch (Exception e){

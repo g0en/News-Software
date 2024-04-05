@@ -90,22 +90,32 @@
         <label for="resumen">Resumen Noticia:</label>
         <textarea id="resumen" name="resumen" rows="4" th:field="${noticia.resumenNoticia}" required></textarea>
     </div>
-    <div class="form-group">
-        <label for="imagen">Subir Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" required>
-    </div>
-    <div class="form-group">
-        <label for="publicada">Publicada:</label>
-        <select id="publicada" name="publicada" required>
-            <option th:value="Y">Y</option>
-            <option th:value="N">N</option>
-        </select>
+    <div class="line">
+        <div class="form-group" id="line">
+            <div class="upload-container">
+                <!-- Input de tipo file -->
+                <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                <!-- Botón para el input -->
+                <label for="imagen" class="upload-btn">
+                    <span class="upload-btn-label">Subir Imagen</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group" id="line1">
+            <label for="publicada">Publicada:</label>
+            <select id="publicada" name="publicada" required>
+                <option th:value="Y">Y</option>
+                <option th:value="N">N</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="line2">
+            <label for="fecha">Fecha de Publicación:</label>
+            <input type="date" id="fecha" name="fecha" th:field="${noticia.fechaPublicacion}" required>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="fecha">Fecha de Publicación:</label>
-        <input type="date" id="fecha" name="fecha" th:field="${noticia.fechaPublicacion}" required>
-    </div>
+    <span class="file-name">Ningún archivo seleccionado</span>
 
     <div class="form-group">
         <label for="editorHtml">Contenido:</label>
@@ -122,5 +132,16 @@
 <form th:action="@{/}">
     <button type="submit">Volver</button>
 </form>
+
+<script>
+    // Manejar el cambio en el input de tipo file
+    document.getElementById('imagen').addEventListener('change', function(event) {
+        // Obtener el nombre del archivo seleccionado
+        var fileName = event.target.files[0].name;
+        // Mostrar el nombre del archivo en el contenedor
+        document.querySelector('.file-name').textContent = 'Archivo seleccionado: ' + fileName;
+    });
+</script>
+
 </body>
 </html>

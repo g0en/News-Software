@@ -110,7 +110,7 @@
 					Contenido HTML de la Noticia
 				</dd>
               </dl>
-                <form th:action="@{/actualizar-noticia/form/{id}(id=${noticia.id})}">
+                <form th:action="@{'/actualizar-noticia/form/' + ${empresa.id} + '/' + ${noticia.id}}">
                     <input type="submit" value="Actualizar">
                 </form>
             </div>

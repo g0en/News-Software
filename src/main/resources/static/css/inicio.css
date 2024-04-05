@@ -1,68 +1,110 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+#btn-actualizar:hover {
+    background-color: #0056b3;
 }
 
 table {
     width: 50%;
-    margin: 0 auto;
     border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
+    margin-top: 10px;
 }
 
 th, td {
     padding: 8px;
-    text-align: left;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
 th {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #f2f2f2;
 }
 
-input[type="submit"],
-input[type="button"] {
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-#btn-actualizar {
-    background-color: #3498db; /* Celeste/Azul */
-    color: white;
-}
-
-#btn-eliminar {
-    background-color: #e74c3c; /* Rojo */
-    color: white;
-}
-
-#btn-empresa {
-    background-color: #2ecc71; /* Verde */
-    color: white;
-}
-
-#btn-noticia {
-    background-color: #f1c40f; /* Amarillo */
-    color: black; /* Cambiado a negro para mejor legibilidad */
-}
-
-input[type="submit"]:hover,
-input[type="button"]:hover {
-    background-color: #555; /* Cambiar a color gris oscuro al pasar el cursor */
+td:first-child {
+    font-weight: bold;
 }
 
 a {
+    color: #007bff;
     text-decoration: none;
-    color: #4CAF50;
 }
 
 a:hover {
-    color: #45a049;
+    text-decoration: underline;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-container form {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+#btn-empresa,
+#btn-noticia {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px; /* Espaciado entre botones */
+}
+
+#btn-empresa{
+    background-color: #1FC91F;
+}
+
+#btn-noticia{
+    background-color: #0D3AE1;
+}
+
+#btn-empresa:hover{
+    background-color: #179117;
+}
+#btn-noticia:hover {
+    background-color: #082282;
+}
+
+#btn-eliminar:hover {
+    background-color: #761212;
 }
