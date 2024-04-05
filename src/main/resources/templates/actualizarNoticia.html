@@ -122,7 +122,7 @@
     <div class="form-group">
         <label>Seleccione la empresa: </label>
         <select name="empresa">
-            <option th:each="emp : ${empresa}" th:value="${emp.id}" th:text="${emp.denominacion}"></option>
+            <option th:each="emp : ${empresa}" th:value="${emp.id}" th:text="${emp.denominacion}" th:selected="${noticia.empresa != null && noticia.empresa.id == emp.id}"></option>
         </select>
     </div>
     <button type="submit">Actualizar Noticia</button>
