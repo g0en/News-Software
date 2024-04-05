@@ -68,7 +68,7 @@ public class NoticiaController {
         }catch (IOException e){
             e.printStackTrace();
         }
-        return "redirect:/detalle/" + idEmrpesa + "/" + id;
+        return "redirect:/detalle/" + noticia.getEmpresa().getId() + "/" + id;
     }
 
     @GetMapping("/detalle/{id}/{idNoticia}")
